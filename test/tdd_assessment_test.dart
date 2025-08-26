@@ -67,16 +67,20 @@ void main() {
     expect(calc.add("//;\n1;2"), 3);
   });
 
-    test("number string with custom delimiter and negative numbers", () {
+  test("number string with custom delimiter and negative numbers", () {
     expect(
       () => calc.add("//;\n1;2;-2;3;-5;6"),
-        throwsA(
-          predicate(
-            (e) =>
-                e is FormatException &&
-                e.message == 'negative numbers not allowed -2, -5',
-          ),
+      throwsA(
+        predicate(
+          (e) =>
+              e is FormatException &&
+              e.message == 'negative numbers not allowed -2, -5',
         ),
-      );
+      ),
+    );
+
+    test("number string with custom delimiter and multiple \\n", () {
+      expect(calc.add("//;\n1;2\n4"), 7);
+    });
   });
 }
