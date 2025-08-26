@@ -9,5 +9,8 @@ void main() {
 
   test('test nothing', () {});
 
+  test("empty string returns 0", () {
+    expect(calc.add(""), 0);
+  });
 
 }
