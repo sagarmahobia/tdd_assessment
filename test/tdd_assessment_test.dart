@@ -83,4 +83,9 @@ void main() {
   test("number string with custom delimiter and multiple \\n", () {
     expect(calc.add("//;\n1;2\n4"), 7);
   });
+
+    test(
+    'custom delimiter header but empty body returns 0',
+    () => expect(calc.add('//;\n'), 0),
+  );
 }
