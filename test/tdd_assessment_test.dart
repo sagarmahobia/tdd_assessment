@@ -2,10 +2,8 @@ import 'package:tdd_assessment/tdd_assessment.dart';
 import 'package:test/test.dart';
 
 void main() {
-  
   late StringCalculator calc;
   setUp(() => calc = StringCalculator());
-
 
   test('test nothing', () {});
 
@@ -13,8 +11,11 @@ void main() {
     expect(calc.add(""), 0);
   });
 
-    test("single number returns the number itself", () {
+  test("single number returns the number itself", () {
     expect(calc.add("5"), 5);
   });
 
+  test("two numbers, comma delimited, returns the sum", () {
+    expect(calc.add("1,2"), 3);
+  });
 }
