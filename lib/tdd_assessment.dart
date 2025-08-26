@@ -4,7 +4,17 @@ class StringCalculator {
       return 0;
     }
 
-    var allNumbers = number.split(RegExp(',|\n')).map((e) => int.parse(e));
+    var delimiter = RegExp(r',|\n');
+
+    if (number.startsWith('//')) {
+      final newlineIndex = number.indexOf('\n');
+      if (newlineIndex != -1) {
+        delimiter = RegExp(number.substring(2, newlineIndex));
+        number = number.substring(newlineIndex + 1);
+      }
+    }
+
+    var allNumbers = number.split(delimiter).map((e) => int.parse(e));
 
     var negativeNumbers = [];
 
@@ -17,10 +27,11 @@ class StringCalculator {
       }
     }
 
-    if(negativeNumbers.isNotEmpty){
-    
-      throw FormatException("negative numbers not allowed ${negativeNumbers.join(", ")}");
-    }else{
+    if (negativeNumbers.isNotEmpty) {
+      throw FormatException(
+        "negative numbers not allowed ${negativeNumbers.join(", ")}",
+      );
+    } else {
       return total;
     }
   }
