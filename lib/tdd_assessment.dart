@@ -16,7 +16,7 @@ class StringCalculator {
       }
     }
 
-    var allNumbers = number.split(delimiter).map((e) => int.parse(e));
+    var allNumbers = number.split(delimiter).where((e)=>e.isNotEmpty).map((e) => int.parse(e));
 
     var negativeNumbers = [];
 
