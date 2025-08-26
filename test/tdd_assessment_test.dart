@@ -22,4 +22,20 @@ void main() {
   test("multiple numbers, comma delimited, returns the sum", () {
     expect(calc.add("1,2,3,4,5"), 15);
   });
+
+  test(
+    "negative numbers throw an exception with message having those numbers",
+    () {
+      expect(
+        () => calc.add("-2"),
+        throwsA(
+          predicate(
+            (e) =>
+                e is FormatException &&
+                e.message == 'negative numbers not allowed -2',
+          ),
+        ),
+      );
+    },
+  );
 }
