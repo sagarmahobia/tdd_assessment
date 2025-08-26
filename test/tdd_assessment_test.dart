@@ -59,7 +59,11 @@ void main() {
     expect(calc.add("1\n2,3"), 6);
   });
 
-   test("number string with multiple new line", () {
+  test("number string with multiple new line", () {
     expect(calc.add("1\n2\n3,4"), 10);
+  });
+
+  test("number string with custom delimiter", () {
+    expect(calc.add("//;\n1;2"), 3);
   });
 }
