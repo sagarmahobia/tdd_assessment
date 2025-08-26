@@ -4,7 +4,7 @@ class StringCalculator {
       return 0;
     }
 
-    var allNumbers = number.split(',').map((e) => int.parse(e));
+    var allNumbers = number.split(RegExp(',|\n')).map((e) => int.parse(e));
 
     var negativeNumbers = [];
 
