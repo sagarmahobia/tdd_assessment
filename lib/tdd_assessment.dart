@@ -9,7 +9,9 @@ class StringCalculator {
     if (number.startsWith('//')) {
       final newlineIndex = number.indexOf('\n');
       if (newlineIndex != -1) {
-        delimiter = RegExp(number.substring(2, newlineIndex));
+        delimiter = RegExp(
+          "${RegExp.escape(number.substring(2, newlineIndex))}|\n",
+        );
         number = number.substring(newlineIndex + 1);
       }
     }
