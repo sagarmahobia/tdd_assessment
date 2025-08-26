@@ -13,4 +13,8 @@ void main() {
     expect(calc.add(""), 0);
   });
 
+    test("single number returns the number itself", () {
+    expect(calc.add("5"), 5);
+  });
+
 }
