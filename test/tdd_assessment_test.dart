@@ -38,4 +38,20 @@ void main() {
       );
     },
   );
+
+   test(
+    "multiple negative numbers throw an exception with message having those numbers",
+    () {
+      expect(
+        () => calc.add("10 , -2, -5, -10, 14"),
+        throwsA(
+          predicate(
+            (e) =>
+                e is FormatException &&
+                e.message == 'negative numbers not allowed -2, -5, -10',
+          ),
+        ),
+      );
+    },
+  );
 }
