@@ -58,4 +58,8 @@ void main() {
   test("number string with new line", () {
     expect(calc.add("1\n2,3"), 6);
   });
+
+   test("number string with multiple new line", () {
+    expect(calc.add("1\n2\n3,4"), 10);
+  });
 }
