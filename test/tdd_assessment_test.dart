@@ -7,4 +7,7 @@ void main() {
   setUp(() => calc = StringCalculator());
 
 
+  test('test nothing', () {});
+
+
 }
