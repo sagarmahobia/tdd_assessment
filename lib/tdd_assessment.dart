@@ -2,8 +2,13 @@ class StringCalculator {
   int add(String number) {
     if (number.isEmpty) {
       return 0;
-    } else {
-      return int.parse(number);
     }
+
+    var total = number
+        .split(',')
+        .map((e) => int.parse(e))
+        .fold(0, (e, i) => e + i);
+
+    return total;
   }
 }
