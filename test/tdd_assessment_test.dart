@@ -18,4 +18,8 @@ void main() {
   test("two numbers, comma delimited, returns the sum", () {
     expect(calc.add("1,2"), 3);
   });
+
+  test("multiple numbers, comma delimited, returns the sum", () {
+    expect(calc.add("1,2,3,4,5"), 15);
+  });
 }
