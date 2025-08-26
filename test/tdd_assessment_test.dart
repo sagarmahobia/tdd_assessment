@@ -39,7 +39,7 @@ void main() {
     },
   );
 
-   test(
+  test(
     "multiple negative numbers throw an exception with message having those numbers",
     () {
       expect(
@@ -54,4 +54,8 @@ void main() {
       );
     },
   );
+
+  test("number string with new line", () {
+    expect(calc.add("1\n2,3"), 6);
+  });
 }
